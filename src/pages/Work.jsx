@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, Cpu, Layers, Scan, BrainCircuit, Activity } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { projects } from '../data/portfolioData';
-import ProjectSchematic from '../components/ProjectSchematic';
+import ProjectDiagram from '../components/ProjectDiagram';
 import '../styles/work.css';
 
 export default function Work() {
@@ -23,7 +23,7 @@ export default function Work() {
               <span className="meta-desc">BUILD · EXPERIMENT · ITERATE</span>
             </div>
             <p className="page-description">
-              A curated index of engineered systems spanning computer vision diagnostics, multi-sensor embedded telemetry, automotive battery safety, autonomous RF robotics, and normalized REST APIs.
+              Five academic and prototype projects across computer vision, embedded sensing, proposed safety systems, robotics, and software.
             </p>
           </div>
         </div>
@@ -43,7 +43,6 @@ export default function Work() {
                       key={proj.id}
                       className={`archive-row-card ${isActive ? 'active' : ''}`}
                       onMouseEnter={() => setActiveProjectIndex(idx)}
-                      onClick={() => setActiveProjectIndex(idx)}
                     >
                       <div className="archive-row-top">
                         <span className="archive-row-num">// {proj.number}</span>
@@ -52,7 +51,7 @@ export default function Work() {
                       </div>
 
                       <h2 className="archive-row-title">
-                        <Link to={`/work/${proj.id}`} className="archive-title-link">
+                        <Link to={`/work/${proj.id}`} className="archive-title-link" onFocus={() => setActiveProjectIndex(idx)}>
                           {proj.title}
                         </Link>
                       </h2>
@@ -71,7 +70,7 @@ export default function Work() {
                           )}
                         </div>
 
-                        <Link to={`/work/${proj.id}`} className="archive-open-btn">
+                        <Link to={`/work/${proj.id}`} className="archive-open-btn" onFocus={() => setActiveProjectIndex(idx)}>
                           <span>CASE STUDY</span>
                           <ArrowUpRight size={14} aria-hidden="true" />
                         </Link>
@@ -98,7 +97,7 @@ export default function Work() {
                 </div>
 
                 <div className="preview-schematic-box">
-                  <ProjectSchematic type={activeProject.schematicType} title={activeProject.title} />
+                    <ProjectDiagram type={activeProject.schematicType} title={activeProject.title} />
                 </div>
 
                 <div className="preview-meta-details">

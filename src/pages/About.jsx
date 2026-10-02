@@ -1,22 +1,16 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  GraduationCap, 
-  MapPin, 
-  Terminal, 
-  Layers, 
-  Cpu, 
-  BrainCircuit, 
+  GraduationCap,
+  Terminal,
   BookOpen, 
-  CheckCircle2, 
   ArrowRight,
-  Code2
 } from 'lucide-react';
 import { personalInfo, education, skillsData, projects } from '../data/portfolioData';
 import '../styles/about.css';
 
 export default function About() {
-  const [selectedCategoryCode, setSelectedCategoryCode] = useState('INTELLIGENCE');
+  const [selectedCategoryCode, setSelectedCategoryCode] = useState('VISION');
 
   const activeCategory = skillsData.find(c => c.code === selectedCategoryCode) || skillsData[1];
   const highlightedProjects = projects.filter(p => activeCategory.relatedProjects.includes(p.id));
@@ -29,7 +23,7 @@ export default function About() {
           <span className="page-category-label">02 / PROFILE &amp; PHILOSOPHY</span>
           <h1 className="page-title">About Muhammed Aman Shaminas</h1>
           <p className="page-description">
-            3rd-year Artificial Intelligence &amp; Machine Learning engineering student at Srinivas Institute of Technology, designing intelligent algorithms, real-world sensor systems, and structured software.
+            {personalInfo.currentRole} at {personalInfo.institution}, interested in computer vision, software, embedded systems, and robotics.
           </p>
         </div>
       </section>
@@ -42,34 +36,8 @@ export default function About() {
             <div className="about-pillars-col">
               <div className="about-block">
                 <span className="about-block-num">// WHO I AM</span>
-                <h2 className="about-block-heading">Engineer in Training. Builder by Instinct.</h2>
+                <h2 className="about-block-heading">A student working across software and physical systems.</h2>
                 <p className="about-p-lead">{personalInfo.bio.lead}</p>
-                {personalInfo.bio.paragraphs.map((p, idx) => (
-                  <p key={idx} className="about-p-body">{p}</p>
-                ))}
-              </div>
-
-              <div className="about-block">
-                <span className="about-block-num">// HOW I APPROACH PROJECTS</span>
-                <h3 className="about-subheading">Methodical Decomposition &amp; Physical Grounding</h3>
-                <div className="approach-grid">
-                  <div className="approach-item">
-                    <span className="approach-step">01 / Formulation</span>
-                    <p className="approach-desc">Define concrete constraints before selecting models or microcontrollers. Avoid premature complexity.</p>
-                  </div>
-                  <div className="approach-item">
-                    <span className="approach-step">02 / Pipeline Design</span>
-                    <p className="approach-desc">Architect the entire data flow—from physical sensor transducer inputs to signal conditioning and model inference.</p>
-                  </div>
-                  <div className="approach-item">
-                    <span className="approach-step">03 / Implementation</span>
-                    <p className="approach-desc">Write structured, modular code in Python, C, or modern frameworks with clear separation of concerns.</p>
-                  </div>
-                  <div className="approach-item">
-                    <span className="approach-step">04 / Verification</span>
-                    <p className="approach-desc">Validate with empirical tests, serial telemetry, or held-out datasets rather than unfounded assumptions.</p>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -88,24 +56,19 @@ export default function About() {
                 </div>
 
                 <p className="aside-focus-desc">{education.focus}</p>
-
-                <div className="aside-location-row">
-                  <MapPin size={13} className="text-accent" aria-hidden="true" />
-                  <span>Kannur, Kerala · {personalInfo.coordinates}</span>
-                </div>
               </div>
 
               <div className="about-aside-box focus-aside-box">
                 <div className="aside-box-header">
                   <Terminal size={18} className="text-accent" aria-hidden="true" />
-                  <span className="aside-box-title">CURRENT TECHNICAL FOCUS</span>
+                  <span className="aside-box-title">PROJECT DOMAINS</span>
                 </div>
 
                 <ul className="aside-focus-list">
-                  <li>Computer Vision &amp; CLAHE Image Preprocessing</li>
-                  <li>Edge Telemetry &amp; Microcontroller Bus Protocols</li>
-                  <li>Autonomous Kinematics &amp; RF Sensing Robotics</li>
-                  <li>Clean REST API Backend Architecture (Django REST)</li>
+                  <li>AI and computer vision</li>
+                  <li>Embedded machine-health monitoring</li>
+                  <li>RF activity and row-tracking robotics</li>
+                  <li>Python and Django REST Framework</li>
                 </ul>
               </div>
             </aside>
@@ -120,9 +83,9 @@ export default function About() {
         <div className="container">
           <div className="skills-map-header">
             <span className="section-label-chip">// 03 / TECHNICAL MAP</span>
-            <h2 className="section-heading-text">Verified Competencies &amp; System Linkage</h2>
+            <h2 className="section-heading-text">Technologies across confirmed work</h2>
             <p className="section-intro-text">
-              Select a domain to inspect verified toolings and view connected engineering case studies.
+              Select a domain to see the technologies listed for its connected project or projects.
             </p>
           </div>
 
@@ -155,7 +118,7 @@ export default function About() {
                   <p className="matrix-cat-desc">{activeCategory.description}</p>
                 </div>
                 <span className="matrix-count-badge">
-                  {activeCategory.skills.length} CONFIRMED TOOLS
+                  {activeCategory.skills.length} PROJECT TECHNOLOGIES
                 </span>
               </div>
 

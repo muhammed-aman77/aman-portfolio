@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Menu, X, FileText, ArrowUpRight, Activity } from 'lucide-react';
+import { Menu, X, FileText } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 import '../styles/navbar.css';
 
-export default function Navbar({ onOpenResume }) {
+export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
@@ -61,8 +61,7 @@ export default function Navbar({ onOpenResume }) {
           </Link>
 
           <div className="nav-system-status" aria-label="System status">
-            <span className="status-indicator-dot" aria-hidden="true" />
-            <span className="status-indicator-label">{personalInfo.statusBadge}</span>
+            <span className="status-indicator-label">{personalInfo.currentRole}</span>
           </div>
         </div>
 
@@ -81,15 +80,14 @@ export default function Navbar({ onOpenResume }) {
 
         {/* Right Actions: Resume Button & Mobile Menu Toggle */}
         <div className="navbar-actions-group">
-          <button
-            type="button"
+          <Link
+            to="/resume"
             className="nav-resume-btn"
-            onClick={onOpenResume}
-            aria-label="View or download resume"
+            aria-label="View or download resume PDF"
           >
             <FileText size={14} aria-hidden="true" />
             <span>RESUME</span>
-          </button>
+          </Link>
 
           <button
             type="button"
@@ -154,21 +152,18 @@ export default function Navbar({ onOpenResume }) {
             </nav>
 
             <div className="mobile-panel-footer">
-              <button
-                type="button"
+              <Link
+                to="/resume"
                 className="btn-primary mobile-panel-resume"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenResume();
-                }}
+                onClick={() => setMobileMenuOpen(false)}
               >
                 <FileText size={16} aria-hidden="true" />
                 <span>VIEW RESUME</span>
-              </button>
+              </Link>
 
               <div className="mobile-footer-meta">
                 <span>{personalInfo.currentRole}</span>
-                <span>{personalInfo.coordinates}</span>
+                <span>{personalInfo.institution}</span>
               </div>
             </div>
           </div>

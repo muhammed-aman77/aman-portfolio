@@ -33,7 +33,7 @@
   font-family: var(--font-display);
   font-size: 1.5rem;
   font-weight: 800;
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
   color: var(--text-primary);
   margin-bottom: 0.5rem;
 }
@@ -104,6 +104,22 @@
   align-items: flex-start;
   gap: 1.25rem;
 }
+
+.footer-social-links {
+  display: flex;
+  gap: 1.1rem;
+}
+
+.footer-social-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.footer-social-links a:hover { color: var(--accent); }
 
 @media (min-width: 768px) {
   .footer-action-col {

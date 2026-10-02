@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, Github, ExternalLink, Cpu, CheckCircle2, AlertCircle } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Info } from 'lucide-react';
 import { projects } from '../data/portfolioData';
-import ProjectSchematic from '../components/ProjectSchematic';
+import ProjectDiagram from '../components/ProjectDiagram';
 import '../styles/projectDetail.css';
 
 export default function ProjectDetail() {
@@ -75,7 +75,7 @@ export default function ProjectDetail() {
             <span className="detail-num">// PROJECT {project.number}</span>
             <span className="detail-domain-chip">{project.domainTag}</span>
             <span className="detail-status-pill">
-              <CheckCircle2 size={13} aria-hidden="true" />
+              <Info size={13} aria-hidden="true" />
               <span>{project.status}</span>
             </span>
           </div>
@@ -106,49 +106,48 @@ export default function ProjectDetail() {
                   <h2 className="block-title">Architectural System Schematic</h2>
                 </div>
                 <div className="schematic-display-frame">
-                  <ProjectSchematic type={project.schematicType} title={project.title} />
+                  <ProjectDiagram type={project.schematicType} title={project.title} />
                 </div>
                 <span className="schematic-caption">
-                  // Fig 1.0: Conceptual data pipeline &amp; hardware transducer architecture for {project.shortTitle}.
+                  // Conceptual system diagram. It does not represent a measured result.
                 </span>
               </div>
 
-              {/* The Overview & The Problem */}
+              {/* Overview */}
               <div className="case-study-block">
                 <div className="block-header">
                   <span className="block-num">02</span>
-                  <h2 className="block-title">Problem Statement &amp; Context</h2>
+                  <h2 className="block-title">Overview</h2>
                 </div>
-                <p className="block-text">{project.theProblem}</p>
                 <p className="block-text">{project.overview}</p>
               </div>
 
-              {/* Engineering Approach */}
+              {/* Project purpose */}
               <div className="case-study-block">
                 <div className="block-header">
                   <span className="block-num">03</span>
-                  <h2 className="block-title">Engineering Methodology &amp; Implementation</h2>
+                  <h2 className="block-title">Purpose</h2>
+                </div>
+                <p className="block-text">{project.purpose}</p>
+              </div>
+
+              {/* Approach */}
+              <div className="case-study-block">
+                <div className="block-header">
+                  <span className="block-num">04</span>
+                  <h2 className="block-title">Approach &amp; Technologies</h2>
                 </div>
                 <p className="block-text">{project.approach}</p>
               </div>
 
-              {/* My Contribution */}
-              <div className="case-study-block">
-                <div className="block-header">
-                  <span className="block-num">04</span>
-                  <h2 className="block-title">My Verified Contribution</h2>
-                </div>
-                <p className="block-text contribution-text">{project.myContribution}</p>
-              </div>
-
-              {/* Current Status & Framing */}
+              {/* Status and factual framing */}
               <div className="case-study-block status-block">
                 <div className="block-header">
                   <span className="block-num">05</span>
-                  <h2 className="block-title">Current Status &amp; Real Framing</h2>
+                  <h2 className="block-title">Status &amp; Scope</h2>
                 </div>
                 <div className="framing-notice-card">
-                  <AlertCircle size={18} className="notice-icon" aria-hidden="true" />
+                  <Info size={18} className="notice-icon" aria-hidden="true" />
                   <p className="framing-notice-text">{project.currentStatus}</p>
                 </div>
               </div>
@@ -161,8 +160,8 @@ export default function ProjectDetail() {
 
                 <div className="sidebar-specs-list">
                   <div className="spec-row">
-                    <span className="spec-key">PROJECT_ID</span>
-                    <span className="spec-val font-mono">{project.id}</span>
+                    <span className="spec-key">PROJECT</span>
+                    <span className="spec-val font-mono">{project.number} / 05</span>
                   </div>
                   <div className="spec-row">
                     <span className="spec-key">CATEGORY</span>
@@ -173,13 +172,13 @@ export default function ProjectDetail() {
                     <span className="spec-val text-green">{project.status}</span>
                   </div>
                   <div className="spec-row">
-                    <span className="spec-key">REPOSITORY</span>
-                    <span className="spec-val text-accent">{project.repositoryStatus}</span>
+                    <span className="spec-key">PUBLIC LINK</span>
+                    <span className="spec-val">Not provided</span>
                   </div>
                 </div>
 
                 <div className="sidebar-highlights-section">
-                  <span className="sidebar-sub">// KEY HIGHLIGHTS</span>
+                  <span className="sidebar-sub">// CONFIRMED DETAILS</span>
                   <div className="sidebar-hl-list">
                     {project.highlights.map((h, i) => (
                       <div key={i} className="hl-row">
@@ -190,16 +189,6 @@ export default function ProjectDetail() {
                   </div>
                 </div>
 
-                <div className="sidebar-action-wrap">
-                  <button
-                    type="button"
-                    className="btn-secondary sidebar-repo-btn"
-                    onClick={() => alert(`Repository for ${project.title} will be publicly linked upon GitHub push.`)}
-                  >
-                    <Github size={15} aria-hidden="true" />
-                    <span>{project.repositoryStatus}</span>
-                  </button>
-                </div>
               </div>
             </aside>
           </div>

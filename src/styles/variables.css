@@ -1,41 +1,41 @@
 :root {
-  /* AMAN.SYS Palette - Obsidian Workspace & Engineering Lab */
-  --bg-primary: #07080a;
-  --bg-secondary: #0d0f14;
-  --bg-tertiary: #13171f;
-  --bg-surface: #10131a;
-  --bg-surface-hover: #171b24;
-  --bg-glass: rgba(7, 8, 10, 0.85);
-  --bg-glass-card: rgba(16, 19, 26, 0.72);
+  --bg-primary: #101411;
+  --bg-secondary: #171c18;
+  --bg-tertiary: #202720;
+  --bg-surface: #171c18;
+  --bg-surface-hover: #202820;
+  --bg-glass: rgba(16, 20, 17, 0.92);
+  --bg-glass-card: rgba(23, 28, 24, 0.88);
   
   /* Text & Typographic Hierarchy */
-  --text-primary: #f5f6f8;
-  --text-secondary: #9da3b0;
-  --text-tertiary: #676e7d;
-  --text-muted: #434956;
+  --text-primary: #edf0e8;
+  --text-secondary: #abb3a8;
+  --text-tertiary: #7b8578;
+  --text-muted: #596257;
   
   /* Precision Laboratory Accents */
-  --accent: #00e5ff;
-  --accent-muted: #0284c7;
-  --accent-glow: rgba(0, 229, 255, 0.12);
-  --accent-glow-strong: rgba(0, 229, 255, 0.28);
-  --accent-border: rgba(0, 229, 255, 0.35);
+  --accent: #d7f36b;
+  --accent-muted: #98b341;
+  --accent-glow: rgba(215, 243, 107, 0.12);
+  --accent-glow-strong: rgba(215, 243, 107, 0.25);
+  --accent-border: rgba(215, 243, 107, 0.38);
+  --accent-warm: #dc8b69;
   
   /* Telemetry Status Indicators */
-  --status-online: #10b981;
-  --status-online-glow: rgba(16, 185, 129, 0.25);
-  --status-amber: #f59e0b;
-  --status-red: #ef4444;
+  --status-online: #b8d37a;
+  --status-online-glow: rgba(184, 211, 122, 0.2);
+  --status-amber: #dc8b69;
+  --status-red: #df715f;
   
   /* Borders & Grid Alignment */
-  --border-subtle: rgba(255, 255, 255, 0.06);
-  --border-medium: rgba(255, 255, 255, 0.11);
-  --border-light: rgba(255, 255, 255, 0.18);
+  --border-subtle: rgba(237, 240, 232, 0.08);
+  --border-medium: rgba(237, 240, 232, 0.15);
+  --border-light: rgba(237, 240, 232, 0.23);
   
   /* Typography */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-display: 'Plus Jakarta Sans', 'Inter', sans-serif;
-  --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, Monaco, monospace;
+  --font-sans: 'Space Grotesk', sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-mono: 'DM Mono', monospace;
   
   /* Transitions & Radii */
   --transition-fast: 0.16s cubic-bezier(0.16, 1, 0.3, 1);
@@ -44,13 +44,13 @@
   
   --radius-xs: 2px;
   --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
+  --radius-md: 5px;
+  --radius-lg: 6px;
+  --radius-xl: 8px;
   --radius-full: 9999px;
   
   /* Layout Containers */
-  --container-max: 1240px;
+  --container-max: 1380px;
   --container-narrow: 880px;
-  --container-padding: clamp(1.25rem, 5vw, 3rem);
+  --container-padding: clamp(1.25rem, 4vw, 3.5rem);
 }

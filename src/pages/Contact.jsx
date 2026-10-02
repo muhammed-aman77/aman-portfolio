@@ -6,11 +6,13 @@ import '../styles/contact.css';
 export default function Contact() {
   const [copiedId, setCopiedId] = useState(null);
 
-  const handleCopy = (text, id) => {
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(text);
+  const handleCopy = async (text, id) => {
+    try {
+      await navigator.clipboard.writeText(text);
       setCopiedId(id);
-      setTimeout(() => setCopiedId(null), 2200);
+      window.setTimeout(() => setCopiedId(null), 2200);
+    } catch {
+      setCopiedId(null);
     }
   };
 
@@ -131,35 +133,27 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Right: Geographic & Technical Coordination Aside */}
+            {/* Academic profile */}
             <aside className="contact-coord-aside">
               <div className="coord-box">
-                <span className="coord-box-tag">// LOCATION TELEMETRY</span>
+                <span className="coord-box-tag">// ACADEMIC PROFILE</span>
 
                 <div className="coord-location-row">
-                  <MapPin size={18} className="text-accent" aria-hidden="true" />
+                  <Mail size={18} className="text-accent" aria-hidden="true" />
                   <div>
-                    <h4 className="coord-city">{personalInfo.location}</h4>
-                    <span className="coord-geo">{personalInfo.coordinates}</span>
+                    <h4 className="coord-city">{personalInfo.name}</h4>
+                    <span className="coord-geo">{personalInfo.discipline}</span>
                   </div>
                 </div>
 
                 <div className="coord-meta-list">
                   <div className="coord-meta-item">
-                    <span className="cm-k">ACADEMIC BASE</span>
-                    <span className="cm-v">Srinivas Institute of Technology</span>
-                  </div>
-                  <div className="coord-meta-item">
-                    <span className="cm-k">CURRENT STANDING</span>
+                    <span className="cm-k">PROGRAMME</span>
                     <span className="cm-v">{personalInfo.currentRole}</span>
                   </div>
                   <div className="coord-meta-item">
-                    <span className="cm-k">TIMEZONE</span>
-                    <span className="cm-v">Indian Standard Time (IST / UTC+5:30)</span>
-                  </div>
-                  <div className="coord-meta-item">
-                    <span className="cm-k">STATUS</span>
-                    <span className="cm-v text-green">{personalInfo.availabilityNotice}</span>
+                    <span className="cm-k">INSTITUTION</span>
+                    <span className="cm-v">{personalInfo.institution}</span>
                   </div>
                 </div>
               </div>

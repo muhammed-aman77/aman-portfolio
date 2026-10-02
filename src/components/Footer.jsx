@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUp, Terminal, MapPin } from 'lucide-react';
+import { ArrowUp, ArrowUpRight } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 import '../styles/footer.css';
 
@@ -24,10 +24,7 @@ export default function Footer() {
             </Link>
             <p className="footer-identity-name">{personalInfo.name}</p>
             <p className="footer-identity-role">{personalInfo.discipline}</p>
-            <div className="footer-geo-tag">
-              <MapPin size={12} aria-hidden="true" />
-              <span>{personalInfo.location} · {personalInfo.coordinates}</span>
-            </div>
+            <p className="footer-identity-role">{personalInfo.currentRole} · {personalInfo.institution}</p>
           </div>
 
           {/* Workspace Sitemaps */}
@@ -39,10 +36,11 @@ export default function Footer() {
               <Link to="/about" className="footer-link">02 / About &amp; Skills</Link>
               <Link to="/lab" className="footer-link">03 / Lab &amp; Experiments</Link>
               <Link to="/contact" className="footer-link">04 / Contact</Link>
+              <Link to="/resume" className="footer-link">05 / Resume PDF</Link>
             </div>
           </div>
 
-          {/* System Telemetry & Back to Top */}
+          {/* Profile links and back to top */}
           <div className="footer-action-col">
             <button
               type="button"
@@ -53,15 +51,9 @@ export default function Footer() {
               <span>RETURN TO TOP</span>
               <ArrowUp size={14} aria-hidden="true" />
             </button>
-            <div className="footer-status-box">
-              <div className="footer-status-row">
-                <span className="status-key">SYSTEM_ID</span>
-                <span className="status-val">AMAN.SYS-WORKSPACE</span>
-              </div>
-              <div className="footer-status-row">
-                <span className="status-key">STUDENT_LEVEL</span>
-                <span className="status-val">3RD YEAR B.E. AI &amp; ML</span>
-              </div>
+            <div className="footer-social-links">
+              <a href={personalInfo.contact.github} target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={13} aria-hidden="true" /></a>
+              <a href={personalInfo.contact.linkedin} target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight size={13} aria-hidden="true" /></a>
             </div>
           </div>
         </div>
@@ -69,10 +61,10 @@ export default function Footer() {
         {/* Bottom Baseline Bar */}
         <div className="footer-bottom-bar">
           <span className="footer-copyright">
-            © {new Date().getFullYear()} Muhammed Aman Shaminas. Built with clean architecture and strict factual accuracy.
+            © {new Date().getFullYear()} {personalInfo.name} · {personalInfo.discipline}.
           </span>
           <span className="footer-arch-tag">
-            MODULAR MULTI-PAGE REACT SYSTEM
+            FIVE CONFIRMED PROJECTS
           </span>
         </div>
       </div>

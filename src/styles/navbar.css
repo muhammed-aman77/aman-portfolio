@@ -34,7 +34,7 @@
   font-family: var(--font-display);
   font-size: 1.35rem;
   font-weight: 800;
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
   color: var(--text-primary);
   text-decoration: none;
   display: inline-flex;
@@ -305,7 +305,13 @@
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--text-primary);
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
+}
+
+@media (max-width: 1023px) {
+  .nav-desktop-links { display: none; }
+  .nav-mobile-toggle { display: inline-flex; }
+  .nav-system-status { display: none; }
 }
 
 .mobile-item-desc {
