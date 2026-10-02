@@ -18,7 +18,7 @@ export default function Work() {
             <span className="page-category-label">01 / ENGINEERING ARCHIVE</span>
             <h1 className="page-title">Selected Work &amp; Case Studies</h1>
             <div className="work-header-meta-row">
-              <span className="meta-badge">05 CONFIRMED BUILDS</span>
+              <span className="meta-badge">05 CONFIRMED PROJECTS</span>
               <span className="meta-sep">//</span>
               <span className="meta-desc">BUILD · EXPERIMENT · ITERATE</span>
             </div>

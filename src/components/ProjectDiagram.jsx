@@ -11,7 +11,7 @@ const diagrams = {
       ['Green channel', 'Extraction'],
       ['CLAHE', 'Contrast processing'],
       ['MobileNetV2', 'Model technology'],
-      ['Prediction', 'Academic output'],
+      ['Prediction task', 'Academic concept'],
       ['Flask', 'Application technology']
     ]
   },
@@ -63,9 +63,9 @@ export default function ProjectDiagram({ type, title }) {
   const diagram = diagrams[type] || diagrams['backend-api'];
 
   return (
-    <div className="project-diagram" role="img" aria-label={`${title}: ${diagram.legend}`}>
-      <div className="diagram-topline"><span>{diagram.legend}</span><span>{String(diagram.steps.length).padStart(2, '0')} STAGES</span></div>
-      <ol className="diagram-flow">
+    <figure className="project-diagram">
+      <figcaption className="diagram-topline"><span>{title} / {diagram.legend}</span><span>{String(diagram.steps.length).padStart(2, '0')} STAGES</span></figcaption>
+      <ol className="diagram-flow" aria-label={`${diagram.legend} stages`}>
         {diagram.steps.map(([label, detail], index) => (
           <React.Fragment key={`${label}-${index}`}>
             <li className={`diagram-step ${type === 'ev-safety' && index > 3 ? 'is-proposed' : ''}`}>
@@ -78,7 +78,7 @@ export default function ProjectDiagram({ type, title }) {
           </React.Fragment>
         ))}
       </ol>
-      <p className="diagram-footnote">Conceptual visualization · no measured results shown</p>
-    </div>
+      <figcaption className="diagram-footnote">Conceptual visualization · no measured results shown</figcaption>
+    </figure>
   );
 }

@@ -71,6 +71,13 @@
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
 }
 
+.contact-copy-status {
+  min-height: 1.4rem;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+
 .channel-card-left {
   display: flex;
   align-items: center;

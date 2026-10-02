@@ -1,18 +1,24 @@
 import React, { useState } from 'react';
-import { Mail, Github, Linkedin, Copy, Check, ArrowUpRight, MapPin, Send } from 'lucide-react';
+import { Mail, Github, Linkedin, Copy, Check, ArrowUpRight, Send } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 import '../styles/contact.css';
 
 export default function Contact() {
   const [copiedId, setCopiedId] = useState(null);
+  const [copyMessage, setCopyMessage] = useState('');
 
   const handleCopy = async (text, id) => {
     try {
       await navigator.clipboard.writeText(text);
       setCopiedId(id);
-      window.setTimeout(() => setCopiedId(null), 2200);
+      setCopyMessage('Copied to clipboard.');
+      window.setTimeout(() => {
+        setCopiedId(null);
+        setCopyMessage('');
+      }, 2200);
     } catch {
       setCopiedId(null);
+      setCopyMessage('Copy is unavailable here. Select the address or profile text to copy it.');
     }
   };
 
@@ -116,6 +122,7 @@ export default function Contact() {
                   );
                 })}
               </div>
+              <p className="contact-copy-status" role="status" aria-live="polite">{copyMessage}</p>
 
               {/* Direct Mail Prompt Card */}
               <div className="contact-direct-card">

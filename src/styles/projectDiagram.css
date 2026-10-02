@@ -7,6 +7,7 @@
     linear-gradient(90deg, rgba(237, 240, 232, 0.025) 1px, transparent 1px),
     #121713;
   background-size: 24px 24px;
+  margin: 0;
 }
 
 .diagram-topline,
@@ -64,15 +65,27 @@
 .diagram-footnote { justify-content: flex-start; padding-top: 0.75rem; border-top: 1px solid var(--diagram-line); font-size: 0.55rem; }
 
 @media (max-width: 740px) {
-  .diagram-flow { display: grid; grid-template-columns: minmax(0, 1fr) 18px minmax(0, 1fr); align-items: center; gap: 0.55rem; }
-  .diagram-step { min-height: 88px; }
-  .diagram-flow > .diagram-arrow:nth-of-type(4n + 1) { transform: rotate(90deg); }
+  .diagram-flow { display: flex; flex-direction: column; align-items: stretch; gap: 0.35rem; }
+  .diagram-step { display: grid; grid-template-columns: 32px minmax(0, 1fr) auto; grid-template-rows: auto auto; min-height: 64px; }
+  .diagram-index { grid-row: 1 / 3; }
+  .diagram-step strong { grid-column: 2; grid-row: 1; }
+  .diagram-step > span:last-of-type { grid-column: 2; grid-row: 2; }
+  .diagram-step small { grid-column: 3; grid-row: 1 / 3; }
+  .diagram-arrow { transform: rotate(90deg); width: 13px; height: 13px; margin: 0 auto; }
   .diagram-step strong { font-size: 0.72rem; }
 }
 
 @media (max-width: 520px) {
-  .diagram-flow { grid-template-columns: minmax(0, 1fr) 15px minmax(0, 1fr); gap: 0.38rem; }
+  .diagram-flow { gap: 0.28rem; }
   .diagram-step { padding: 0.55rem; min-height: 82px; }
   .diagram-arrow { width: 12px; }
   .diagram-topline { font-size: 0.52rem; }
 }
+
+.archive-preview-col .diagram-flow { flex-direction: column; align-items: stretch; gap: 0.3rem; padding: 0.8rem 0; }
+.archive-preview-col .diagram-step { display: grid; grid-template-columns: 26px minmax(0, 1fr); grid-template-rows: auto auto; min-height: 52px; padding: 0.45rem 0.6rem; }
+.archive-preview-col .diagram-index { grid-row: 1 / 3; }
+.archive-preview-col .diagram-step strong { grid-column: 2; grid-row: 1; font-size: 0.69rem; }
+.archive-preview-col .diagram-step > span:last-of-type { grid-column: 2; grid-row: 2; }
+.archive-preview-col .diagram-step small { grid-column: 2; grid-row: 3; }
+.archive-preview-col .diagram-arrow { transform: rotate(90deg); width: 12px; height: 12px; margin: 0 auto; }

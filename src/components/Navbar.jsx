@@ -60,7 +60,7 @@ export default function Navbar() {
             AMAN<span className="nav-wordmark-dot">.</span>
           </Link>
 
-          <div className="nav-system-status" aria-label="System status">
+          <div className="nav-system-status" aria-label="Academic programme">
             <span className="status-indicator-label">{personalInfo.currentRole}</span>
           </div>
         </div>

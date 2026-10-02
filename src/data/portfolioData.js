@@ -12,7 +12,7 @@ export const personalInfo = {
   preferredName: 'Aman',
   wordmark: 'AMAN.',
   discipline: 'Artificial Intelligence & Machine Learning',
-  currentRole: '3rd-year B.E. AI & ML student',
+  currentRole: 'Final-year B.E. AI & ML student',
   institution: 'Srinivas Institute of Technology',
   tagline: 'Exploring the space between intelligent software and the physical world.',
   bio: {
@@ -170,7 +170,7 @@ export const skillsData = [
 export const education = {
   degree: 'B.E. — Artificial Intelligence & Machine Learning',
   institution: 'Srinivas Institute of Technology',
-  level: '3rd-year student',
+  level: 'Final-year student',
   focus: 'Artificial Intelligence & Machine Learning'
 };
 

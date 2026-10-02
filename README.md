@@ -1,117 +1,48 @@
-# Muhammed Aman Shaminas — Engineering Portfolio
+# Aman Universe
 
-A premium, modern personal portfolio website built for **Muhammed Aman Shaminas** (3rd-year Artificial Intelligence & Machine Learning engineering student).
+An existing React 18 and Vite portfolio for Muhammed Aman Shaminas. The site presents a personal digital universe, an interactive domain map, five confirmed academic or prototype projects, and the existing resume PDF.
 
-Designed with a dark, high-contrast, technical developer aesthetic featuring precision typography, subtle background grid mechanics, terminal telemetry elements, and responsive architecture.
+## Stack
 
----
+- React 18 and React Router
+- Vite
+- Lucide React
+- CSS modules by page/component with shared design tokens
+- Space Grotesk and DM Mono web fonts
 
-## 🛠 Tech Stack
+## Routes
 
-- **Framework**: React 18
-- **Bundler & Tooling**: Vite
-- **Icons**: Lucide React
-- **Styling**: Modular CSS System with custom CSS variables (no bloated third-party CSS frameworks)
-- **Typography**: Inter, Plus Jakarta Sans, JetBrains Mono
+- `/` — interactive system map and project index
+- `/work` — five-project archive and schematic preview
+- `/work/:projectId` — project case study
+- `/about` — academic profile and project-linked technologies
+- `/lab` — empty index for future published notes
+- `/contact` — existing email and profile links
+- `/resume` — viewer for the PDF in `public/resume.pdf`
+- `/404` — not-found page; unknown routes use the same page
 
----
+Project content and the existing contact links are held in `src/data/portfolioData.js`. Project descriptions are intentionally concise where further details have not been supplied. Proposed features are labeled as proposed; no performance results are stated.
 
-## 📁 Project Structure
+## Local Development
 
-```text
-aman-portfolio/
-├── dist/                      # Production build output
-├── node_modules/              # Dependencies
-├── public/                    # Static assets & favicon
-├── src/
-│   ├── components/            # Modular React components
-│   │   ├── ActionModal.jsx    # System notifications & config hints
-│   │   ├── About.jsx          # Technical profile narrative & focus pillars
-│   │   ├── Contact.jsx        # Direct communication CTA & channel placeholders
-│   │   ├── Education.jsx      # Academic foundation & timeline placeholder
-│   │   ├── Footer.jsx         # Minimalist technical footer
-│   │   ├── Hero.jsx           # Editorial typography & developer telemetry
-│   │   ├── Navbar.jsx         # Sticky blur header & mobile drawer
-│   │   ├── ProjectCard.jsx    # Individual project card with hover states
-│   │   ├── Projects.jsx       # Selected engineering builds showcase
-│   │   └── Skills.jsx         # Categorized skills matrix
-│   ├── data/
-│   │   └── portfolioData.js   # Single source of truth for all portfolio data
-│   ├── styles/
-│   │   ├── about.css          # Styles for About section
-│   │   ├── contact.css        # Styles for Contact section
-│   │   ├── education.css      # Styles for Education section
-│   │   ├── footer.css         # Styles for Footer
-│   │   ├── global.css         # Base resets, subtle grid, responsive utilities
-│   │   ├── hero.css           # Styles for Hero section & telemetry
-│   │   ├── navbar.css         # Styles for Navbar & mobile drawer
-│   │   ├── projects.css       # Styles for Projects showcase
-│   │   ├── skills.css         # Styles for Skills matrix
-│   │   └── variables.css      # Design tokens (colors, typography, radii)
-│   ├── App.jsx                # Main application wrapper
-│   └── main.jsx               # React entry point
-├── index.html                 # HTML shell with Google Fonts & meta tags
-├── package.json               # Dependencies & build scripts
-├── vite.config.js             # Vite configuration
-└── README.md                  # Documentation
-```
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js (v18 or higher recommended)
-- npm or pnpm
-
-### Development
-
-To start the local development server:
+Use Node.js 18 or newer.
 
 ```bash
+npm install
 npm run dev
 ```
 
-Visit `http://localhost:3000` in your browser.
+Vite serves the development app at `http://localhost:3000`.
 
-### Production Build
-
-To build the static optimized assets for deployment:
+## Build and Preview
 
 ```bash
 npm run build
-```
-
-The output will be placed in the `dist/` directory, ready to be hosted on Vercel, Netlify, Cloudflare Pages, or GitHub Pages.
-
-To preview the production build locally:
-
-```bash
 npm run preview
 ```
 
----
+The production output is written to `dist/`. Vite's SPA fallback supports direct navigation to portfolio routes in local preview and typical Vercel deployments.
 
-## ⚙️ Updating Content & Placeholders
+## Resume
 
-All portfolio text, projects, skills, education, and links are managed in a single file:
-👉 **`src/data/portfolioData.js`**
-
-### When Ready for Public Deployment:
-
-1. **Resume**:
-   - Place your resume PDF in the `public/` directory (e.g., `public/aman-resume.pdf`).
-   - In `src/data/portfolioData.js`, update `personalInfo.contact.resumePlaceholder` to `/aman-resume.pdf`.
-
-2. **Contact Links**:
-   - In `src/data/portfolioData.js`, update:
-     - `emailPlaceholder` -> Your actual email address
-     - `githubPlaceholder` -> Your GitHub profile URL
-     - `linkedinPlaceholder` -> Your LinkedIn profile URL
-
-3. **Project Repositories & Demos**:
-   - In `src/data/portfolioData.js`, update `githubUrl` and `liveUrl` inside each project object in the `projects` array.
-
-4. **Education Timeline**:
-   - In `src/data/portfolioData.js`, replace `periodPlaceholder` with your exact academic timeline (e.g., `2022 — 2026`).
+The viewer and navigation use the actual `/resume.pdf` asset from `public/resume.pdf`. Replace that file when the resume changes; the viewer includes open-in-new-tab and download actions.
